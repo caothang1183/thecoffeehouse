@@ -22,7 +22,10 @@ export const ProductStack = createStackNavigator({
         screen: ProductComponent,
         navigationOptions: {
             headerMode: 'none',
-            header: null
+            title: 'Product List',
+            headerStyle: {
+                backgroundColor: 'orange'
+            },
         }
     },
     ProductDetail: {

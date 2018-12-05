@@ -16,7 +16,7 @@ export default class ProductItem extends React.Component {
                     <View style={styles.line} />
                     <View style={styles.pdDetail}>
                         <Text style={{ fontSize: 15, fontWeight: 'bold', flex: 2 }}> 50.000 đ</Text>
-                        <TouchableOpacity onPress={() => { this.props.navigation.navigate('ProductDetail', { item: 69}) }}>
+                        <TouchableOpacity onPress={() => { this.props.navigation.navigate('ProductDetail', { item: 69 }) }}>
                             <Image style={styles.btnDetail} source={require('../../assets/images/button/plus.png')} />
                         </TouchableOpacity>
                     </View>
