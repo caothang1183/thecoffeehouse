@@ -1,9 +1,9 @@
 import axios from 'axios';
 import * as CONFIG from '../constants/CONFIG_API';
 
-export default function CallApi(method, endpoint, body) {
+export default function axiosCaller(endpoint, method = 'GET', body) {
     return axios({
-        method: method ? method : 'GET',
+        method: method,
         url: `${CONFIG.URL}/${endpoint}`,
         data: body,
         headers: {
@@ -13,7 +13,7 @@ export default function CallApi(method, endpoint, body) {
             'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
             'Access-Control-Allow-Credentials': true
         },
-        mode : 'no-cors'
+        mode: 'no-cors'
     }).catch(err => {
         console.log(err);
     });
