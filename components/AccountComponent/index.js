@@ -9,7 +9,7 @@ export default class AccountComponent extends React.Component {
     }
     render() {
         return (
-            <ImageBackground source={require('../../assets/images/background_2.jpg')} style={styles.backgroundImage}>
+            <ImageBackground source={require('../../assets/images/background_blur.jpg')} style={styles.backgroundImage}>
                 <View style={styles.logoArea}>
                     <Image style={styles.logo} source={require('../../assets/images/logo.png')} />
                 </View>
@@ -76,13 +76,14 @@ const styles = StyleSheet.create({
     inputAccount: {
         borderWidth: 1,
         borderRadius: 25,
-        borderColor: '#000',
+        borderColor:'#fff',
         marginTop: 25,
         paddingTop: 5,
         paddingBottom: 5,
         paddingLeft: 10,
         paddingRight: 10,
         width: width * 0.7,
+        backgroundColor: 'rgba(255,255,255,0.4)',
     },
     buttonArea: {
         height: 100,
