@@ -14,9 +14,9 @@ export default class AccountComponent extends React.Component {
                     <Image style={styles.logo} source={require('../../assets/images/logo.png')} />
                 </View>
                 <View style={styles.inputArea}>
-                    <TextInput style={styles.inputAccount} placeholder="Username, Phone number or E-mail" placeholderTextColor="#000" />
-                    <TextInput style={styles.inputAccount} secureTextEntry={true} placeholder="Password" placeholderTextColor="#000" />
-                    <Text style={{ marginTop: 10, color: '#fff' }} onPress={() => Linking.openURL('https://google.com')}>Forget your password?</Text>
+                    <TextInput style={styles.inputAccount} placeholder="Username, Phone number or E-mail" placeholderTextColor="rgb(255,255,255)" />
+                    <TextInput style={styles.inputAccount} secureTextEntry={true} placeholder="Password" placeholderTextColor="rgb(255,255,255)" />
+                    <Text style={{ marginTop: 10, color: 'rgb(0,0,0)', textDecorationLine: 'underline', }} onPress={() => Linking.openURL('https://google.com')}>Forget your password?</Text>
                 </View>
                 <View style={styles.buttonArea}>
                     <View style={styles.btnLogin}>
@@ -24,7 +24,7 @@ export default class AccountComponent extends React.Component {
                     </View>
                     <View style={styles.btnRegister}>
                         <Button title="Register" color="#ccc"
-                            onPress={() => {this.props.navigation.navigate('Register')}}
+                            onPress={() => { this.props.navigation.navigate('Register') }}
                             containerStyle={{ marginTop: 20 }}
                         />
                     </View>
@@ -75,15 +75,15 @@ const styles = StyleSheet.create({
     },
     inputAccount: {
         borderWidth: 1,
-        borderRadius: 25,
-        borderColor:'#fff',
+        borderRadius: 5,
+        borderColor: '#fff',
         marginTop: 25,
         paddingTop: 5,
         paddingBottom: 5,
         paddingLeft: 10,
         paddingRight: 10,
         width: width * 0.7,
-        backgroundColor: 'rgba(255,255,255,0.4)',
+        backgroundColor: 'rgba(255,255,255,0.2)',
     },
     buttonArea: {
         height: 100,

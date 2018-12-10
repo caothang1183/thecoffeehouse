@@ -1,14 +1,14 @@
 import { createStackNavigator } from 'react-navigation';
-import HomeComponent from '../components/HomeComponent/index';
-import RegisterComponent from '../components/AccountComponent/RegisterComponent';
-import ProductComponent from '../components/ProductComponent/index';
+import Home from '../components/HomeComponent/index';
+import ProductList from '../components/ProductComponent/ProductList';
 import ProductDetail from '../components/ProductComponent/ProductDetail';
-import AccountComponent from '../components/AccountComponent/index';
-import SettingsComponent from '../components/SettingsComponent/index';
+import Register from '../components/AccountComponent/Register';
+import Login from '../components/AccountComponent/Login';
+import Settings from '../components/SettingsComponent/index';
 
 export const HomeStack = createStackNavigator({
     Home: {
-        screen: HomeComponent,
+        screen: Home,
         navigationOptions: {
             headerMode: 'none',
             header: null
@@ -19,7 +19,7 @@ export const HomeStack = createStackNavigator({
 
 export const ProductStack = createStackNavigator({
     Product: {
-        screen: ProductComponent,
+        screen: ProductList,
         navigationOptions: {
             headerMode: 'none',
             title: 'Product List',
@@ -42,15 +42,15 @@ export const ProductStack = createStackNavigator({
 
 
 export const AccountStack = createStackNavigator({
-    Account: {
-        screen: AccountComponent,
+    Login: {
+        screen: Login,
         navigationOptions: {
             headerMode: 'none',
             header: null
         }
     },
     Register: {
-        screen: RegisterComponent,
+        screen: Register,
         navigationOptions: {
             headerMode: 'none'
         }
@@ -59,7 +59,7 @@ export const AccountStack = createStackNavigator({
 
 export const SettingsStack = createStackNavigator({
     Settings: {
-        screen: SettingsComponent,
+        screen: Settings,
         navigationOptions: {
             title: 'Settings',
             headerMode: 'none',
