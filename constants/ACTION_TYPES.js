@@ -1,5 +1,3 @@
 // Product Actions
-export const product = {
-    FIND_ALL = 'FIND_ALL',
-    FIND_BY_ID = 'FIND_BY_ID'
-}
+export const INIT_PRODUCT = 'INIT_PRODUCT';
+export const FIND_BY_ID = 'FIND_BY_ID';

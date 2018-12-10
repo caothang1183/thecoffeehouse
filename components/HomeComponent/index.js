@@ -1,19 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, Text, Platform, StatusBar } from 'react-native';
-import { Font, AppLoading } from 'expo';
+import { AppLoading } from 'expo';
 
-export default class HomeComponent extends React.Component {
+class HomeComponent extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = { loading: true };
-    }
-
-    async componentDidMount() {
-        await Font.loadAsync({
-            'Poppins-Bold': require('../../assets/fonts/Poppins-Bold.ttf'),
-        }).then(()=>{
-            this.setState({ loading: false });
-        })
     }
 
     render() {
@@ -38,3 +31,5 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins-Bold'
     },
 });
+
+export default HomeComponent;

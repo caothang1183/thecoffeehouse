@@ -3,7 +3,7 @@ import { StyleSheet, View, Image, Button, ImageBackground, TextInput, Text, Link
 import Dimensions from 'Dimensions';
 
 const { width, height } = Dimensions.get('window');
-export default class AccountComponent extends React.Component {
+export default class Login extends React.Component {
     loginAccount = () => {
 
     }

@@ -1,16 +1,15 @@
 import * as types from '../constants/ACTION_TYPES';
 
-export function findAll() {
-    quantity = 1;
+export function initProduct() {
     return {
-        type: types.product.FIND_ALL,
+        type: types.INIT_PRODUCT,
         params: null
     }
 }
 
-export function FindById({ id }) {
+export function findById({ id }) {
     return {
-        type: types.product.FIND_BY_ID,
+        type: types.FIND_BY_ID,
         params: { id }
     }
 }

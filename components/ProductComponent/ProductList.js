@@ -2,20 +2,20 @@ import React from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import ProductItem from './ProductItem';
 import Dimensions from 'Dimensions';
-import axiosCaller from '../../utils/axiosCaller';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { initProduct } from '../../actions/ProductAction';
 
 const { height } = Dimensions.get('window');
-class ProductComponent extends React.Component {
+class ProductList extends React.Component {
 
     componentDidMount() {
-        return axiosCaller('products', 'GET', null)
-            // .then((response) => response.json())
-            .then((responseJson) => {
-                return console.log(responseJson);
-            })
+        this.props.initProduct();
     }
 
+
     render() {
+        console.log(this.props.products)
         return (
             <ScrollView>
                 <View style={styles.container}>
@@ -25,6 +25,18 @@ class ProductComponent extends React.Component {
             </ScrollView>
         );
     }
+}
+
+function mapStateToProps(state) {
+    return {
+        products: state.products
+    }
+}
+
+function mapActionsToProps(dispatch) {
+    return bindActionCreators({
+        initProduct,
+    }, dispatch);
 }
 
 const styles = StyleSheet.create({
@@ -37,7 +49,5 @@ const styles = StyleSheet.create({
         padding: 5,
         height: height
     },
-    
 });
-
-export default ProductComponent;
+export default connect(mapStateToProps, mapActionsToProps)(ProductList);
