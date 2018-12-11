@@ -29,7 +29,8 @@ const TabNavigator = createBottomTabNavigator(
                 tabBarLabel: 'Account',
                 tabBarIcon: ({ tintColor }) => (
                     <FontAwesomeIcon name="user" color={tintColor} size={24} />
-                )
+                ),
+                tabBarVisible: false
             }
         },
         Settings: {
