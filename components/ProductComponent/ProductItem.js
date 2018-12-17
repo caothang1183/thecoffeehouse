@@ -6,21 +6,22 @@ const { height, width } = Dimensions.get('window');
 export default class ProductItem extends React.Component {
 
     render() {
+        const { product } = this.props;
         return (
             <View style={styles.itemContent}>
                 <View style={styles.container}>
                     <View style={styles.pdImage}>
-                        <Image style={styles.image} source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }} />
+                        <Image style={styles.image} source={{ uri: product.images[0].url }} />
                     </View>
                     <View style={styles.pdDetail}>
                         <View style={styles.pdName}>
-                            <Text style={{ fontSize: 16, fontWeight: 'bold', paddingTop: 10 }}>Product Name</Text>
+                            <Text style={{ fontSize: 16, fontWeight: 'bold', paddingTop: 10 }}>{product.name}</Text>
                             <Text style={{ fontStyle: 'italic' }}>Size Small(475ml)</Text>
                         </View>
                         <View style={styles.line} />
                         <View style={styles.pdPrice}>
-                            <Text style={{ fontSize: 15, fontWeight: 'bold', flex: 2 }}> 50.000 đ</Text>
-                            <TouchableOpacity onPress={() => { this.props.navigation.navigate('ProductDetail', { item: 69 }) }}>
+                            <Text style={{ fontSize: 15, fontWeight: 'bold', flex: 2 }}> {product.price} đ</Text>
+                            <TouchableOpacity onPress={() => { this.props.navigation.navigate('ProductDetail', { item: product }) }}>
                                 <Image style={styles.btnDetail} source={require('../../assets/images/button/plus.png')} />
                             </TouchableOpacity>
                         </View>

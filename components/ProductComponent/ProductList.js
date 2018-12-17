@@ -1,26 +1,35 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, FlatList } from 'react-native';
 import ProductItem from './ProductItem';
 import Dimensions from 'Dimensions';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { initProduct } from '../../actions/ProductAction';
 
 const { height } = Dimensions.get('window');
 class ProductList extends React.Component {
-
-    componentDidMount() {
-        this.props.initProduct();
+    constructor(props) {
+        super(props);
+        this.state = {
+            products: []
+        }
     }
 
+    componentDidMount() {
+        const { products } = this.props;
+        products.then((data) => {
+            this.setState({
+                products: data
+            })
+        })
+    }
 
     render() {
-        console.log(this.props.products)
+        const { products } = this.state;
         return (
             <ScrollView>
                 <View style={styles.container}>
-                    <ProductItem navigation={this.props.navigation} />
-                    <ProductItem navigation={this.props.navigation} />
+                    {products.map(product =>(
+                        <ProductItem navigation={this.props.navigation} product={product} key={product._id} />
+                    ))}
                 </View>
             </ScrollView>
         );
@@ -31,12 +40,6 @@ function mapStateToProps(state) {
     return {
         products: state.products
     }
-}
-
-function mapActionsToProps(dispatch) {
-    return bindActionCreators({
-        initProduct,
-    }, dispatch);
 }
 
 const styles = StyleSheet.create({
@@ -50,4 +53,4 @@ const styles = StyleSheet.create({
         height: height
     },
 });
-export default connect(mapStateToProps, mapActionsToProps)(ProductList);
+export default connect(mapStateToProps)(ProductList);

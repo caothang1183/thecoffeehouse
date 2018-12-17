@@ -1,12 +1,19 @@
 import React from 'react';
 import { StyleSheet, View, Text, Platform, StatusBar } from 'react-native';
 import { AppLoading } from 'expo';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { initProduct } from '../../actions/ProductAction';
 
 class HomeComponent extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = { loading: true };
+    }
+
+    componentWillMount() {
+        this.props.initProduct();
     }
 
     render() {
@@ -21,6 +28,19 @@ class HomeComponent extends React.Component {
     }
 }
 
+function mapStateToProps(state) {
+    return {
+        products: state.products
+    }
+}
+
+function mapActionsToProps(dispatch) {
+    return bindActionCreators({
+        initProduct,
+    }, dispatch);
+}
+
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -32,4 +52,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HomeComponent;
+export default connect(mapStateToProps, mapActionsToProps)(HomeComponent);
